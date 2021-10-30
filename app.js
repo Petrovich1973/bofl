@@ -10,7 +10,9 @@ app.use(cors())
 app.use(express.json({ extended: true }))
 
 app.use('/api/auth', require('./routes/auth.routes'))
+app.use('/api/group', require('./routes/group.routes'))
 app.use('/api/link', require('./routes/link.routes'))
+app.use('/api/task', require('./routes/task.routes'))
 app.use('/t', require('./routes/redirect.routes'))
 app.set('etag', false)
 

@@ -4,11 +4,15 @@ import {LinksPage} from './pages/LinksPage'
 import {CreatePage} from './pages/CreatePage'
 import {DetailPage} from './pages/DetailPage'
 import {AuthPage} from './pages/AuthPage'
+import {TasksPage} from "./pages/TasksPage";
 
 export const useRoutes = isAuthenticated => {
   if (isAuthenticated) {
     return (
       <Switch>
+        <Route path="/tasks" exact>
+          <TasksPage />
+        </Route>
         <Route path="/links" exact>
           <LinksPage />
         </Route>
