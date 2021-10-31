@@ -1,35 +1,20 @@
 const {Router} = require('express')
-const config = require('config')
-const shortid = require('shortid')
+const Link = require('../models/Link')
 const Task = require('../models/Task')
 const User = require('../models/User')
 const Group = require('../models/Group')
 const auth = require('../middleware/auth.middleware')
 const router = Router()
 
-function generateDateminusOneDay() {
-    let date = new Date();
-    return date.setDate(date.getDate() - 3);
-    // new Date(res).toLocaleString();
-}
-
 router.post('/generate', auth, async (req, res) => {
-
+    const {form = {}} = req.body
     try {
         const task = new Task({
             owner: req.user.userId,
             group: req.user.groupId,
-            creationParameters: {
-                reportTpl: 'vkl-29',
-                reportDate: generateDateminusOneDay(),
-                unit: {
-                    tb: "43",
-                    osb: null,
-                    vsp: null,
-                }
-            }
+            ...form
         })
-
+        await Link.remove()
         await task.save()
             .then(doc => {
                 res.status(201).json({task})
@@ -50,17 +35,17 @@ router.get('/', auth, async (req, res) => {
         const tasks = await Task.find({group: req.user.groupId})
         const users = await User.find()
         const usrs = await users.map(e => {
-            e = e.toJSON();
-            return e;
+            e = e.toJSON()
+            return e
         })
-        const result = await tasks.map(function (e) {
-            e = e.toJSON(); // toJSON() here.
+        const listResult = await tasks.map(function (e) {
+            e = e.toJSON()
             const email = usrs.find(f => (String(f._id) === String(e.owner)))
             e.group = group.role
             e.owner = email && email.email
-            return e;
+            return e
         });
-        res.json(result)
+        res.json(listResult)
     } catch (e) {
         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
     }

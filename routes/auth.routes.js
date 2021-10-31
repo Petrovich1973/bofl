@@ -27,16 +27,18 @@ router.post(
                 })
             }
 
-            const {email, password} = req.body
+            const {email, password, role = 'dep_web_reports'} = req.body
 
             const candidate = await User.findOne({email})
 
             if (candidate) {
                 return res.status(400).json({message: 'Такой пользователь уже существует'})
             }
+            const group = await Group.findOne({role})
+            const groups = [group]
 
             const hashedPassword = await bcrypt.hash(password, 12)
-            const user = new User({email, password: hashedPassword})
+            const user = new User({email, password: hashedPassword, groups})
 
             await user.save()
 

@@ -1,43 +1,99 @@
-@import "~materialize-css/dist/css/materialize.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
-input.yellow-input {
-  border-bottom: 1px solid #fff!important;
-  box-shadow: 0 1px 0 0 #fff!important;
+* {
+    box-sizing: border-box;
 }
 
-input.yellow-input + label {
-  color: #ffffff!important;
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-input.yellow-input:focus + label {
-  color: #ffeb3b!important;
-}
-
-input.yellow-input:focus {
-  border-bottom: 1px solid #ffeb3b!important;
-  box-shadow: 0 1px 0 0 #ffeb3b!important;
-}
-/*-------------------------------*/
-@media only screen and (max-width: 992px) {
-  nav .brand-logo {
-    font-size: 130%;
-  }
-  .hide-on-med-and-down.isMenu {
-    display: flex !important;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-    z-index: 200;
-  }
-  .hide-on-med-and-down.isMenu li a {
-    color: black;
+.wrapper-flex {
     display: flex;
-    border-top: 1px solid #596972;
-  }
+    align-items: center;
 }
+
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+header {
+    background-color: #212121;
+    color: #c1c1c1;
+}
+header .nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+header .nav li a {
+    display: block;
+    padding: 5px 15px;
+}
+header .nav li a:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+header a {
+    color: #c1c1c1;
+}
+header .wrapper-flex {
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+/*@import "~materialize-css/dist/css/materialize.min.css";*/
+
+
+/*input.yellow-input {*/
+/*  border-bottom: 1px solid #fff!important;*/
+/*  box-shadow: 0 1px 0 0 #fff!important;*/
+/*}*/
+
+/*input.yellow-input + label {*/
+/*  color: #ffffff!important;*/
+/*}*/
+
+/*input.yellow-input:focus + label {*/
+/*  color: #ffeb3b!important;*/
+/*}*/
+
+/*input.yellow-input:focus {*/
+/*  border-bottom: 1px solid #ffeb3b!important;*/
+/*  box-shadow: 0 1px 0 0 #ffeb3b!important;*/
+/*}*/
+/*!*-------------------------------*!*/
+/*@media only screen and (max-width: 992px) {*/
+/*  nav .brand-logo {*/
+/*    font-size: 130%;*/
+/*  }*/
+/*  .hide-on-med-and-down.isMenu {*/
+/*    display: flex !important;*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    left: 0;*/
+/*    flex-direction: column;*/
+/*    width: 100vw;*/
+/*    height: 100vh;*/
+/*    background-color: white;*/
+/*    z-index: 200;*/
+/*  }*/
+/*  .hide-on-med-and-down.isMenu li a {*/
+/*    color: black;*/
+/*    display: flex;*/
+/*    border-top: 1px solid #596972;*/
+/*  }*/
+/*}*/
 
