@@ -23,6 +23,7 @@ const schema = new Schema({
     taskDate: {type: Date, required: true, default: Date.now}, // timestamp, example: 1635321829808
     taskDateStart: {type: Date, required: true, default: Date.now},
     taskStatus: {type: Number, required: true, default: 0}, // codeStatus, example: 0 | 1 | 2 | 3 | 4 | 5 ...
+    report: {type: String},
     // taskAuthor: [login], // string, example: "Tanko1-IP"
     // roleGroup: [group], // string, example: "dep_web_reports"
 })

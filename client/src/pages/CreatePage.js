@@ -39,79 +39,78 @@ export const CreatePage = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col s8 offset-s2" style={{paddingTop: '2rem'}}>
-                <div className="input-field">
-                    <label>reportTpl</label>
-                    <input
-                        placeholder="reportTpl"
-                        type="text"
-                        value={form.creationParameters.reportTpl}
-                        onChange={e => handleChangeField({reportTpl: e.target.value})}
-                    />
-                </div>
-                <div className="input-field">
-                    <label>reportDate</label>
-                    <input
-                        placeholder="reportDate"
-                        type="text"
-                        value={new Date(form.creationParameters.reportDate).toLocaleString("ru").split(',')[0]}
-                        onChange={e => {
-                            const newValue = e.target.value.split(',')[0].split('.')//.join(' ')
-                            const formatDate = new Date([newValue[1], newValue[0], newValue[2]].join(' ')).getTime()
-                            if (formatDate) {
-                                console.log(formatDate)
-                                const reportDate = formatDate
-                                handleChangeField({reportDate})
-                            }
-                        }}
-                    />
-                </div>
-                <div className="input-field">
-                    <label>tb</label>
-                    <input
-                        placeholder="tb"
-                        type="text"
-                        value={form.creationParameters.unit.tb}
-                        onChange={e => handleChangeField({
-                            unit: {
-                                ...form.creationParameters.unit,
-                                tb: e.target.value
-                            }
-                        })}
-                    />
-                </div>
-                <div className="input-field">
-                    <label>osb</label>
-                    <input
-                        placeholder="osb"
-                        type="text"
-                        value={form.creationParameters.unit.osb}
-                        onChange={e => handleChangeField({
-                            unit: {
-                                ...form.creationParameters.unit,
-                                osb: e.target.value
-                            }
-                        })}
-                    />
-                </div>
-                <div className="input-field">
-                    <label>vsp</label>
-                    <input
-                        placeholder="vsp"
-                        type="text"
-                        value={form.creationParameters.unit.vsp}
-                        onChange={e => handleChangeField({
-                            unit: {
-                                ...form.creationParameters.unit,
-                                vsp: e.target.value
-                            }
-                        })}
-                    />
-                </div>
-                <div>
-                    <button onClick={onSend}>Создать</button>
-                </div>
+        <div className="form">
+            <h3>Создание задачи</h3>
+            <div className="input-field">
+                <label>reportTpl</label>
+                <input
+                    placeholder="reportTpl"
+                    type="text"
+                    value={form.creationParameters.reportTpl}
+                    onChange={e => handleChangeField({reportTpl: e.target.value})}
+                />
+            </div>
+            <div className="input-field">
+                <label>reportDate</label>
+                <input
+                    placeholder="reportDate"
+                    type="text"
+                    value={new Date(form.creationParameters.reportDate).toLocaleString("ru").split(',')[0]}
+                    onChange={e => {
+                        const newValue = e.target.value.split(',')[0].split('.')//.join(' ')
+                        const formatDate = new Date([newValue[1], newValue[0], newValue[2]].join(' ')).getTime()
+                        if (formatDate) {
+                            console.log(formatDate)
+                            const reportDate = formatDate
+                            handleChangeField({reportDate})
+                        }
+                    }}
+                />
+            </div>
+            <div className="input-field">
+                <label>tb</label>
+                <input
+                    placeholder="tb"
+                    type="text"
+                    value={form.creationParameters.unit.tb}
+                    onChange={e => handleChangeField({
+                        unit: {
+                            ...form.creationParameters.unit,
+                            tb: e.target.value
+                        }
+                    })}
+                />
+            </div>
+            <div className="input-field">
+                <label>osb</label>
+                <input
+                    placeholder="osb"
+                    type="text"
+                    value={form.creationParameters.unit.osb}
+                    onChange={e => handleChangeField({
+                        unit: {
+                            ...form.creationParameters.unit,
+                            osb: e.target.value
+                        }
+                    })}
+                />
+            </div>
+            <div className="input-field">
+                <label>vsp</label>
+                <input
+                    placeholder="vsp"
+                    type="text"
+                    value={form.creationParameters.unit.vsp}
+                    onChange={e => handleChangeField({
+                        unit: {
+                            ...form.creationParameters.unit,
+                            vsp: e.target.value
+                        }
+                    })}
+                />
+            </div>
+            <div className="form-send">
+                <button onClick={onSend}>Создать</button>
             </div>
         </div>
     )

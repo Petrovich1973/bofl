@@ -8,7 +8,7 @@ export const TasksList = ({deleteOne, tasks}) => {
     const {request} = useHttp()
 
     if (!tasks.length) {
-        return <p className="center">Ссылок пока нет</p>
+        return <p className="center">Задач пока нет</p>
     }
 
     const onDelete = async id => {
@@ -42,7 +42,7 @@ export const TasksList = ({deleteOne, tasks}) => {
                         <td>{task.group}</td>
                         <td>{task.owner}</td>
                         <td>{task.creationParameters.reportTpl}</td>
-                        <td>{new Date(task.creationParameters.reportDate).toLocaleString("ru")}</td>
+                        <td>{new Date(task.creationParameters.reportDate).toLocaleString("ru").split(',')[0]}</td>
                         <td>{Object.keys(task.creationParameters.unit)
                             .map(key => {
                                 return task.creationParameters.unit[key]

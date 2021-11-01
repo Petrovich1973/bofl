@@ -4,14 +4,68 @@
     box-sizing: border-box;
 }
 
+a {
+    color: black;
+}
+
+button {
+    cursor: pointer;
+}
+
+button, select, input:not([type='radio']) {
+    height: 3vh;
+    padding: 0 1rem;
+}
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
 
 .wrapper-flex {
     display: flex;
     align-items: center;
+}
+
+table {
+    width: 100%;
+}
+table th, table td {
+    padding: 1rem 2rem;
+    text-align: left;
+    vertical-align: middle;
+}
+table tbody tr:hover {
+    background-color: #212121;
+    color: #c1c1c1;
+}
+table tbody tr:hover a {
+    color: #c1c1c1;
+}
+@media (max-width: 1400px) {
+    table th, table td {
+        padding: 1rem .2rem;
+    }
+}
+
+table a {
+    font-size: small;
+}
+
+.input-field {
+    margin: 1rem 0;
+}
+
+.form label {
+    display: inline-block;
+    padding-right: 1rem;
+    width: 200px;
+    text-align: right;
+}
+
+.form .form-send, .form h3 {
+    padding-left: 200px;
 }
 
 #root {
@@ -22,12 +76,28 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
+
+.content {
+    padding: 1vw;
+}
+
 header {
+    position: relative;
     background-color: #212121;
     color: #c1c1c1;
+}
+header .content {
+    padding: 0 1vw;
+}
+header h2 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 400;
 }
 header .nav {
     list-style: none;
@@ -35,11 +105,13 @@ header .nav {
     padding: 0;
 }
 header .nav li a {
-    display: block;
-    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    padding: 25px 35px;
 }
-header .nav li a:hover {
+header .nav li a:hover, header .nav li a.active {
     background-color: rgba(255, 255, 255, .1);
+    text-decoration: none;
 }
 header a {
     color: #c1c1c1;

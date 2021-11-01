@@ -14,7 +14,7 @@ export const Navbar = () => {
 
     return (
         <header>
-            <div className="container">
+            <div className="container content">
                 <div className="wrapper-flex">
                     <h2>Отчеты по вкладам и счетам физ лиц</h2>
                     <ul className="nav wrapper-flex">

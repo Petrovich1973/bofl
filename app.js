@@ -6,6 +6,16 @@ const mongoose = require('mongoose')
 
 const app = express()
 
+const cron = require('node-cron')
+const jobScheduled = require('./jobs/scheduled')
+
+cron.schedule('*/10 * * * * *', async () => {
+
+  console.log('running a task 1 minutes')
+  jobScheduled()
+
+})
+
 app.use(cors())
 app.use(express.json({ extended: true }))
 

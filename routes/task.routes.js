@@ -1,5 +1,4 @@
 const {Router} = require('express')
-const Link = require('../models/Link')
 const Task = require('../models/Task')
 const User = require('../models/User')
 const Group = require('../models/Group')
@@ -14,7 +13,7 @@ router.post('/generate', auth, async (req, res) => {
             group: req.user.groupId,
             ...form
         })
-        await Link.remove()
+
         await task.save()
             .then(doc => {
                 res.status(201).json({task})
